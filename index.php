@@ -36,7 +36,68 @@
                 Créer 2 étudiants différents.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                     function var_dumb($var) {
+                        echo "<pre>", var_dump($var), "</pre>";
+                    }
+                    class Student {
+                        private string $lastname;
+                        private string $firstname;
+                        public DateTime $birthdate;
+                        public string $grade;
+                        public string $school;
+
+                        public function __construct(string $lastname, string $firstname, DateTime $birthdate, string $grade, string $school) {
+                            $this->lastname =  $lastname;
+                            $this->firstname =  $firstname;
+                            $this->birthdate = $birthdate;
+                            $this->grade = $grade;
+                            $this->school = $school;
+                        }
+
+                        public function getLastName():string {
+                            return $this->lastname;
+                        }
+                        public function getFirstName():string {
+                            return $this->firstname;
+                        }
+                        public function getBirthdate():DateTime {
+                            return $this->birthdate;
+                        }
+                        public function getGrade():string {
+                            return $this->grade;
+                        }
+                        public function getSchool():string {
+                            return $this->school;
+                        }
+
+                        public function setLastName(string $lastname):void {
+                            $this->lastname = $lastname;
+                        }
+                        public function setFirstname(string $firstname):void {
+                            $this->firstname = $firstname;
+                        }
+                        public function setBirthdate(DateTime $birhtdate):void {
+                            $this->birthdate = $birhtdate;
+                        }
+                        public function setGrade(string $grade):void {
+                            $this->grade = $grade;
+                        }
+                        public function setSchool(string $school):void {
+                            $this->school = $school;
+                        }
+                        public function getAge():int {
+                            return $this->birthdate->diff(new DateTime())->format("%y");
+                        }
+                        public function getText():string {
+                            return "Bonjour, je m'appelle ".$this->getfirstname()." j'ai ".$this->getAge()." ans et je vais à l'école ".$this->getSchool()." en class de ".$this->getGrade().".";
+                        }
+                    }
+                    $student1 = new Student("Mike", "Westen", new DateTime("2000-02-02"), "1er", "Lycée Marcel Pagnol");
+                    $student2 = new Student("Kelly", "Pen", new DateTime("1999-03-03"), "terminal", "Lycée Jean Monet");
+                    var_dumb($student1);
+                    var_dumb($student2);
+                ?>
             </div>
         </section>
         
@@ -49,7 +110,14 @@
                 Modifier le niveau scolaire des 2 élèves et les afficher.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                $student1->setGrade("2de");
+                $student2->setGrade("3em");
+                echo $student1->getGrade();
+                echo $student2->getGrade();
+                // var_dumb($student1->setGrade("2de"));
+                // var_dumb($student2->setGrade("3em"));
+                ?>
             </div>
         </section>
         
@@ -62,7 +130,10 @@
                 Mettez à jour l'instanciation des 2 élèves et afficher leur date de naissance.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                   var_dumb($student1->getBirthdate());
+                   var_dumb($student2->getBirthdate());
+                ?>
             </div>
         </section>
         
@@ -75,7 +146,10 @@
                 Afficher l'âge des 2 élèves.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    echo $student1->getAge()."<br>";
+                    echo $student2->getAge();
+                ?>
             </div>
         </section>
         
@@ -88,7 +162,10 @@
                 Ajouter la propriété et ajouter la donnée sur les élèves.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    echo $student1->getSchool();
+                    echo $student2->getSchool();
+                ?>
             </div>
         </section>
         
@@ -102,7 +179,9 @@
                 Afficher la phrase de présentation des 2 élèves.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    echo $student1->getText();
+                ?>
             </div>
         </section>
 
