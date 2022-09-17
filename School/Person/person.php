@@ -13,9 +13,15 @@ abstract class person {
     // SETTERS AND GETTERS
 
     public function setFirstname(string $firstname):void {
-        $this->firsname = $firstname;
+        $this->firstname = $firstname;
     }
     public function getFirstname():string {
-        return $this->firsname;
+        return $this->firstname;
+    }
+    public function setLastname(string $lastname):void {
+        $this->lastname = $lastname;
+    }
+    public function getLastname():string {
+        return $this->lastname;
     }
 }

@@ -1,75 +1,11 @@
 <?php
+
+    spl_autoload_register();
+
+    use School\Teacher\teacher;
+
     function var_dumb($var) {
         echo "<pre>", var_dump($var), "</pre>";
-    }
-    class Teacher {
-        private string $firstname;
-        private string $lastname;
-        private array $subjects;
-        private string $school;
-
-        public function __construct(string $firstname, string $lastname, array $subjects = [], string $school = "") {
-            $this->firstname = $firstname;
-            $this->lastname = $lastname;
-            $this->subjects = $subjects;
-            $this->school = $school;
-        }
-
-        // SETTERS AND GETTERS
-
-        public function setLastname(string $lastname):void {
-            $this->lastname = $lastname;
-        }
-        public function getLastname():string {
-            return $this->lastname;
-        }
-
-        public function setFirstname(string $firstname):void {
-            $this->firstname = $firstname;
-        }
-        public function getFirstname():string {
-            return $this->firstname;
-        }
-
-        public function setSubjects(array $subjects):void {
-            $this->subjects = $subjects;
-        }
-        public function getSubjects():array {
-            return $this->subjects;
-        }
-
-        public function setSchool(string $school):void {
-            $this->school = $school;
-        }
-        public function getSchool():string {
-            return $this->school;
-        }
-
-        // METHODS
-
-        public function addSubject(string $subject):void {
-            if(in_array($subject, $this->subjects)) return;
-            $this->subjects[] = $subject;
-        }
-
-        public function removeSubject(string $subject):void {
-            $this->subjects = array_filter($this->subjects, fn ($s) => $s !== $subject);
-        }
-
-        public function getSubjectToString():string {
-            return implode(', ', $this->getSubjects());
-        }
-
-        public function introduceMyself():string {
-            $replace = [
-                "firstname" => $this->getFirstname(),
-                "lastname" => $this->getLastname(),
-                "school" => $this->getSchool(),
-                "subjects" => $this->getSubjectToString()
-            ];
-            $template = "Greetings my name is ##firstname## ##lastname## and I teach at the ##school## where I teach the following subjects: ##subjects##";
-            return str_replace(array_map(fn ($v) => "##$v##", array_keys($replace)), array_values($replace), $template);
-        }
     }
 
     $teacher1 = new Teacher("Alaska", "5000");
