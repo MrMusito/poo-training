@@ -1,7 +1,7 @@
 <?php
     spl_autoload_register();
 
-    use School\Student\student;
+    use App\Student\student;
 
     function var_dumb($var) {
         echo "<pre>", var_dump($var), "</pre>";

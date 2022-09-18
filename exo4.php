@@ -1,3 +1,19 @@
+<?php
+
+    spl_autoload_register();
+
+    use App\School\school;
+    use App\School\HighSchool;
+
+    function var_dumb($var) {
+        echo "<pre>", var_dump($var), "</pre>";
+    }
+
+    $school1 = new School("Ecole François 1er", "Paris");
+    $school2 = new School("Lycée Du Moulin", "Berk");
+    $highSchool1 = new HighSchool("Sainte Sophie", "Etampes");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +50,10 @@
                 Créer 2 écoles et afficher leurs proprités.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    var_dumb($school1);
+                    var_dumb($school2);
+                ?>
             </div>
         </section>
         
@@ -50,7 +69,9 @@
                 Créer une école de chaque type.
             </p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    var_dumb($highSchool1);
+                ?>
             </div>
         </section>
 

@@ -2,7 +2,7 @@
 
     spl_autoload_register();
 
-    use School\Teacher\teacher;
+    use App\Teacher\teacher;
 
     function var_dumb($var) {
         echo "<pre>", var_dump($var), "</pre>";
